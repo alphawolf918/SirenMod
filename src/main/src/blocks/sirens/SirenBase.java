@@ -1,12 +1,11 @@
 package sirenmod.blocks.sirens;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import sirenmod.lib.enums.State;
 
-public abstract class SirenBase extends BlockContainer {
+public class SirenBase extends Block {
 
 	public static State state = State.OFF;
 	public String texture = "";

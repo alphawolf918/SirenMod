@@ -7,12 +7,13 @@ import sirenmod.blocks.Blocks;
 import sirenmod.lib.enums.State;
 
 public class EmeraldSiren extends SirenBase {
-
+	
 	public static final String sirenInfo = "emeraldsiren";
 	public static State state = State.OFF;
-	
+
 	public EmeraldSiren(int par1, State state) {
 		super(par1, state);
+		this.state = state;
 		this.setUnlocalizedName(sirenInfo);
 		this.setSirenBlockSound(sirenInfo);
 		this.setTextureName("sirenmod:" + sirenInfo);
@@ -62,14 +63,13 @@ public class EmeraldSiren extends SirenBase {
 	@Override
 	public void updateTick(World par1World, int par2, int par3, int par4,
 			Random par5Random) {
-		super.updateTick(par1World, par2, par3, par4, par5Random);
 		this.playAlarm(par1World, par2, par3, par4);
 		this.stateCheck(par1World, par2, par3, par4);
 	}
 
 	public void playAlarm(World par1World, int par2, int par3, int par4) {
 		if (state == State.ON
-				&& !par1World.isBlockIndirectlyGettingPowered(par2,
+				&& par1World.isBlockIndirectlyGettingPowered(par2,
 						par3, par4)) {
 			par1World.playSoundEffect(par2 + 1.5D, par3 + 1.5D,
 					par4 + 1.5D,
